@@ -20,4 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationDidEnterBackground(_: UIApplication) { }
 
   func applicationWillEnterForeground(_: UIApplication) { }
+  
+  func applicationWillTerminate(_ application: UIApplication) {
+  }
 }

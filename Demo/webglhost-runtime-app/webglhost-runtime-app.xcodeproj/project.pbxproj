@@ -13,10 +13,12 @@
 		C623DC972D64899800C6321F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C623DC852D64899800C6321F /* Assets.xcassets */; };
 		C623DC9C2D64899800C6321F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C623DC842D64899800C6321F /* AppDelegate.swift */; };
 		C623DCAD2D648C7800C6321F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C623DCAC2D648C7800C6321F /* Config.swift */; };
-		C64848CA2D65D0F600FA1070 /* webglhost-runtime.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C64848C72D65D0EF00FA1070 /* webglhost-runtime.xcframework */; };
-		C64848CB2D65D0F600FA1070 /* webglhost-runtime.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C64848C72D65D0EF00FA1070 /* webglhost-runtime.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C64848CA2D65D0F600FA1070 /* webglhost_runtime.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C64848C72D65D0EF00FA1070 /* webglhost_runtime.xcframework */; };
+		C64848CB2D65D0F600FA1070 /* webglhost_runtime.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C64848C72D65D0EF00FA1070 /* webglhost_runtime.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C6BE7A952D6EED5500EA7C4D /* webglhost.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BE7A932D6EED4B00EA7C4D /* webglhost.xcframework */; };
 		C6BE7A962D6EED5500EA7C4D /* webglhost.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C6BE7A932D6EED4B00EA7C4D /* webglhost.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C6D279E22D92CB5C0025E5EC /* blink_canvas.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D279E02D92CB530025E5EC /* blink_canvas.xcframework */; };
+		C6D279E32D92CB5C0025E5EC /* blink_canvas.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C6D279E02D92CB530025E5EC /* blink_canvas.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +28,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C64848CB2D65D0F600FA1070 /* webglhost-runtime.xcframework in Embed Frameworks */,
+				C64848CB2D65D0F600FA1070 /* webglhost_runtime.xcframework in Embed Frameworks */,
 				C6BE7A962D6EED5500EA7C4D /* webglhost.xcframework in Embed Frameworks */,
+				C6D279E32D92CB5C0025E5EC /* blink_canvas.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -40,9 +43,11 @@
 		C623DC852D64899800C6321F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C623DCA52D64899B00C6321F /* webglhost-runtime-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "webglhost-runtime-app-Bridging-Header.h"; sourceTree = "<group>"; };
 		C623DCAC2D648C7800C6321F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		C64848C72D65D0EF00FA1070 /* webglhost-runtime.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:C6RTLM3J3M:You San Di Technology (Shanghai) Co., Ltd"; lastKnownFileType = wrapper.xcframework; name = "webglhost-runtime.xcframework"; path = "../../SDK/webglhost-runtime.xcframework"; sourceTree = "<group>"; };
+		C64848C72D65D0EF00FA1070 /* webglhost_runtime.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:C6RTLM3J3M:You San Di Technology (Shanghai) Co., Ltd"; lastKnownFileType = wrapper.xcframework; name = webglhost_runtime.xcframework; path = ../../SDK/webglhost_runtime.xcframework; sourceTree = "<group>"; };
 		C64848CE2D65D22200FA1070 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6BE7A932D6EED4B00EA7C4D /* webglhost.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:C6RTLM3J3M:You San Di Technology (Shanghai) Co., Ltd"; lastKnownFileType = wrapper.xcframework; name = webglhost.xcframework; path = ../../SDK/webglhost.xcframework; sourceTree = "<group>"; };
+		C6CCAD912D9A8D9A00448838 /* webglhost-runtime-app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "webglhost-runtime-app.entitlements"; sourceTree = "<group>"; };
+		C6D279E02D92CB530025E5EC /* blink_canvas.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:C6RTLM3J3M:You San Di Technology (Shanghai) Co., Ltd"; lastKnownFileType = wrapper.xcframework; name = blink_canvas.xcframework; path = ../../SDK/blink_canvas.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -61,7 +66,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6BE7A952D6EED5500EA7C4D /* webglhost.xcframework in Frameworks */,
-				C64848CA2D65D0F600FA1070 /* webglhost-runtime.xcframework in Frameworks */,
+				C64848CA2D65D0F600FA1070 /* webglhost_runtime.xcframework in Frameworks */,
+				C6D279E22D92CB5C0025E5EC /* blink_canvas.xcframework in Frameworks */,
 				C6114D602D5F59D300BB23C1 /* SDWebImage in Frameworks */,
 				5FD576142D5C7B1900476908 /* SnapKit in Frameworks */,
 				C6114D7D2D606CDD00BB23C1 /* QRCodeReader in Frameworks */,
@@ -74,6 +80,7 @@
 		5FD575CF2D5C753300476908 = {
 			isa = PBXGroup;
 			children = (
+				C6CCAD912D9A8D9A00448838 /* webglhost-runtime-app.entitlements */,
 				C64848CE2D65D22200FA1070 /* Info.plist */,
 				C623DCA52D64899B00C6321F /* webglhost-runtime-app-Bridging-Header.h */,
 				5FDDD6212D6DE451008F98E5 /* customScripts */,
@@ -102,8 +109,9 @@
 		5FD576032D5C768A00476908 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C6D279E02D92CB530025E5EC /* blink_canvas.xcframework */,
 				C6BE7A932D6EED4B00EA7C4D /* webglhost.xcframework */,
-				C64848C72D65D0EF00FA1070 /* webglhost-runtime.xcframework */,
+				C64848C72D65D0EF00FA1070 /* webglhost_runtime.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -213,6 +221,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "webglhost-runtime-app.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -259,6 +268,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "webglhost-runtime-app.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

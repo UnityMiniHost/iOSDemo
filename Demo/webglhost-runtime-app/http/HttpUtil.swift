@@ -11,21 +11,23 @@ private struct Token: Codable {
 
 public class HttpUtil {
 
-  // MARK: Public
-
   public static func getHostServerGameList(completion: @escaping ([GameModel]?, Error?) -> Void) {
-    let url = URL(string: GET_GAME_LIST_URL)!
-    var request = URLRequest(url: url)
-    request.httpMethod = "POST"
-    let token = Token(token: Config.APP_SERVICE_TOKEN)
+    let baseURL = URL(string: Config.HOST_SERVER_API_BASE + "/game/list")!
+    let queryItems = [
+      URLQueryItem(name: "appId", value: Config.APP_ID),
+    ]
 
-    do {
-      let jsonData = try JSONEncoder().encode(token)
-      request.httpBody = jsonData
-    } catch {
-      TJLogger.error("[\(Config.APP_LOG_TAG)] Encode error: \(error)")
+    var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)
+    components?.queryItems = queryItems
+
+    guard let modifiedURL = components?.url else {
+      TJLogger.error("[\(Config.APP_LOG_TAG)] Failed to create URL with query parameters")
       return
     }
+
+    var request = URLRequest(url: modifiedURL)
+    request.httpMethod = "GET"
+    request.setValue("Bearer \(Config.APP_SERVICE_TOKEN)", forHTTPHeaderField: "Authorization")
 
     let task = URLSession.shared.dataTask(with: request) { data, _, error in
       if let error {
@@ -53,7 +55,5 @@ public class HttpUtil {
   }
 
   // MARK: Private
-
-  private static let GET_GAME_LIST_URL = Config.HOST_SERVER_API_BASE + "/game/get_list"
 
 }

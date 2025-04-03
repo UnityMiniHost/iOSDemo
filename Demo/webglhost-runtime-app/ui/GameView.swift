@@ -1,14 +1,18 @@
 import UIKit
+import webglhost_runtime
 
 class GameView: UIView {
 
   // MARK: Lifecycle
+  
+  public var data: PlayedGameModel?
 
   // MARK: - Initialization
-  init(imageUrl: String, title: String) {
+  init(game: PlayedGameModel) {
     super.init(frame: .zero)
+    self.data = game
     setupViews()
-    configure(with: imageUrl, title: title)
+    configure(with: game.iconUrl, title: game.name)
   }
 
   required init?(coder _: NSCoder) {

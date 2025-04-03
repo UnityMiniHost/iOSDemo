@@ -1,4 +1,5 @@
 import UIKit
+import webglhost_runtime
 
 // MARK: - MoreGamesViewController
 
@@ -6,7 +7,7 @@ class MoreGamesViewController: BaseViewController {
 
   // MARK: Lifecycle
 
-  init(games: [GameModel]) {
+  init(games: [PlayedGameModel]) {
     self.games = games
     super.init(nibName: nil, bundle: nil)
   }
@@ -38,7 +39,7 @@ class MoreGamesViewController: BaseViewController {
 
   // MARK: Private
 
-  private var games: [GameModel] = []
+  private var games: [PlayedGameModel] = []
 
   private lazy var tableView: UITableView = {
     let tv = UITableView()
@@ -90,7 +91,7 @@ extension MoreGamesViewController: UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(
       withIdentifier: GameTableViewCell.reuseIdentifier,
       for: indexPath) as! GameTableViewCell
-    cell.configure(with: games[indexPath.row])
+    cell.configure(recentlyPlayedGame: games[indexPath.row])
     return cell
   }
 }
@@ -100,7 +101,18 @@ extension MoreGamesViewController: UITableViewDataSource {
 extension MoreGamesViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let game = games[indexPath.row]
-    (navigationController?.viewControllers.first as? ViewController)?.play(in: game)
+    let model = GameModel(
+      id: game.id,
+      appId: game.id,
+      bundleId: game.bundleId,
+      gameType: game.gameType,
+      name: game.name,
+      tags: game.tags,
+      iconUrl: game.iconUrl,
+      briefIntro: game.briefIntro,
+      versionId: game.versionId,
+      launchKey: game.launchKey)
+    (navigationController?.viewControllers.first as? ViewController)?.play(in: model)
     tableView.deselectRow(at: indexPath, animated: true)
   }
 }

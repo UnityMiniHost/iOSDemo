@@ -1,4 +1,5 @@
 import UIKit
+import webglhost_runtime
 
 class GameTableViewCell: UITableViewCell {
 
@@ -27,6 +28,13 @@ class GameTableViewCell: UITableViewCell {
     titleLabel.text = game.name
     descriptionLabel.text = game.briefIntro
     updateTags(tags: game.tags!)
+  }
+  
+  func configure(recentlyPlayedGame game: PlayedGameModel) {
+    gameImageView.sd_setImage(with: URL(string: game.iconUrl), placeholderImage: UIImage(named: "gameicon"))
+    titleLabel.text = game.name
+    descriptionLabel.text = game.briefIntro
+    updateTags(tags: game.tags)
   }
 
   // MARK: Private

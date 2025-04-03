@@ -8,7 +8,7 @@
 
 ## Preview
 
-| ![First GIF](./open_game.gif) |
+| <img src="open_game.gif" alt="image" width="40%" height="auto"> |
 |-------------------------------------|
 
 ## Clone Project

@@ -30,6 +30,13 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(handleAppWillTerminate),
+      name: UIApplication.willTerminateNotification,
+      object: nil)
+
     initTJHostHandle()
     getHostServerGameList()
     setupUI()
@@ -40,6 +47,11 @@ class ViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.setNavigationBarHidden(true, animated: animated)
+  }
+
+  @objc
+  func handleAppWillTerminate() {
+    MultiGameLauncher.destroyAll()
   }
 
   func setupUI() {
@@ -62,6 +74,9 @@ class ViewController: UIViewController {
     titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
     headerView.addSubview(titleLabel)
 
+    let scanView = HostScanUIView()
+    headerView.addSubview(scanView)
+
     view.addSubview(headerView)
 
     imageView.snp.makeConstraints { make in
@@ -72,6 +87,12 @@ class ViewController: UIViewController {
     titleLabel.snp.makeConstraints { make in
       make.left.equalToSuperview().inset(16)
       make.bottom.equalToSuperview().inset(22)
+    }
+
+    scanView.snp.makeConstraints { make in
+      make.width.equalTo(20)
+      make.right.equalToSuperview().inset(6)
+      make.top.equalToSuperview().inset(16)
     }
   }
 
@@ -118,10 +139,9 @@ class ViewController: UIViewController {
       make.bottom.equalToSuperview().inset(12)
     }
 
+    recentlyView.isHidden = true
     recentlyView.snp.remakeConstraints { make in
-      make.top.equalTo(headerView.snp.bottom)
-      make.left.right.equalToSuperview()
-      make.height.equalTo(126)
+      make.height.equalTo(0)
     }
 
     self.bottomView = bottomView
@@ -191,43 +211,56 @@ class ViewController: UIViewController {
 
       hostHandle.initLog(.debug, self)
 
+      hostHandle.setRecentlyPlayedGameDelegate(delegate: self)
+
       self.hostHandle = hostHandle
     }
   }
 
-  /// 通过 game id 启动游戏
-  func play(in game: GameModel) {
+  /// 启动游戏页面
+  /// - Parameter
+  ///   gameId: 实例 id
+  ///   binding: 绑定实例相关信息
+  func launchHostView(gameId: String, binding: @escaping (HostViewController) -> Void) {
     guard let hostHandle else {
       return
     }
-    let hostViewController = MultiGameLauncher.launch(gameId: game.id, HostViewController.self)
-    hostViewController.game = game
+
+    let hostViewController = MultiGameLauncher.launch(gameId: gameId, HostViewController.self)
+    hostViewController.gameId = gameId
     hostViewController.hostHandle = hostHandle
-    hostViewController.modalPresentationStyle = .fullScreen
+    hostViewController.modalPresentationStyle = Config.APP_ENABLE_TRANSPARENT ? .overFullScreen : .fullScreen
     hostViewController.delegate = self
+    binding(hostViewController)
 
     present(hostViewController, animated: true, completion: {
       // 记录游戏启动信息
+      let playedGames = hostHandle.getAllRecentlyPlayedGames(userId: Config.USER_ID)
+      self.addGameViews(to: self.bottomView, games: playedGames)
     })
+  }
+
+  /// 通过 game 启动游戏
+  func play(in game: GameModel) {
+    launchHostView(gameId: game.launchKey ?? game.id) { hostViewController in
+      hostViewController.launchKey = game.launchKey
+    }
   }
 
   /// 通过扫码启动游戏
   func playGameWithScan(result url: String) {
-    guard let hostHandle else {
-      return
+    launchHostView(gameId: url) { hostViewController in
+      hostViewController.launchKey = url
     }
-    let hostViewController = MultiGameLauncher.launch(gameId: url, HostViewController.self)
-    hostViewController.sessionUrl = url
-    hostViewController.hostHandle = hostHandle
-    hostViewController.modalPresentationStyle = .fullScreen
-    hostViewController.delegate = self
-
-    present(hostViewController, animated: true)
   }
 
   func updateList(with newGames: [GameModel]) {
+    guard let hostHandle else {
+      return
+    }
     games = newGames
-    addGameViews(to: bottomView, games: games)
+    let playedGames = hostHandle.getAllRecentlyPlayedGames(userId: Config.USER_ID)
+    addGameViews(to: bottomView, games: playedGames)
     tableView.reloadData()
   }
 
@@ -241,12 +274,30 @@ class ViewController: UIViewController {
     })
   }
 
+  @objc
+  func clickRecentlyPlayedGame(_ sender: UITapGestureRecognizer) {
+    if let view = sender.view as? GameView {
+      let model = GameModel(
+        id: view.data!.id,
+        appId: view.data!.id,
+        bundleId: view.data!.bundleId,
+        gameType: view.data!.gameType,
+        name: view.data!.name,
+        tags: view.data!.tags,
+        iconUrl: view.data!.iconUrl,
+        briefIntro: view.data!.briefIntro,
+        versionId: view.data?.versionId,
+        launchKey: view.data?.launchKey)
+      play(in: model)
+    }
+  }
+
   // MARK: Private
 
   private var games: [GameModel] = []
 
 
-  private func addGameViews(to container: UIStackView, games: [GameModel]) {
+  private func addGameViews(to container: UIStackView, games: [PlayedGameModel]) {
     for arrangedSubview in container.arrangedSubviews { arrangedSubview.removeFromSuperview() }
 
     let maxCount = 5
@@ -258,10 +309,19 @@ class ViewController: UIViewController {
 
     let itemWidth = min(48, (availableWidth - CGFloat(gameCount-1)*32) / CGFloat(gameCount))
 
+    if !games.isEmpty {
+      recentlyView.isHidden = false
+      recentlyView.snp.remakeConstraints { make in
+        make.top.equalTo(headerView.snp.bottom)
+        make.left.right.equalToSuperview()
+        make.height.equalTo(126)
+      }
+    }
+
     for game in games.prefix(maxCount) {
-      let gameView = GameView(
-        imageUrl: game.iconUrl!,
-        title: game.name!)
+      let gameView = GameView(game: game)
+      let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(clickRecentlyPlayedGame))
+      gameView.addGestureRecognizer(tapGestureRecognizer)
       container.addArrangedSubview(gameView)
 
       gameView.snp.makeConstraints { make in
@@ -284,6 +344,12 @@ class ViewController: UIViewController {
       selector: #selector(handleScanResult(_:)),
       name: .didReceiveScanResult,
       object: nil)
+
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(handleUpdateHostConfig(_:)),
+      name: .didUpdateHostConfig,
+      object: nil)
   }
 
   @objc
@@ -303,6 +369,17 @@ class ViewController: UIViewController {
   }
 
 
+  @objc
+  private func handleUpdateHostConfig(_: Notification) {
+    // 确保在主线程处理
+    DispatchQueue.main.async { [weak self] in
+      MultiGameLauncher.destroyAll()
+      self?.initTJHostHandle()
+      self?.getHostServerGameList()
+    }
+  }
+
+
 
   private func showScanResultAlert(result: String) {
     let alert = UIAlertController(
@@ -315,8 +392,23 @@ class ViewController: UIViewController {
 
   @objc
   private func showMoreGames() {
-    let moreVC = MoreGamesViewController(games: games)
+    guard let hostHandle else {
+      return
+    }
+    let moreVC = MoreGamesViewController(games: hostHandle.getAllRecentlyPlayedGames(userId: Config.USER_ID))
     navigationController?.pushViewController(moreVC, animated: true)
+  }
+}
+
+// MARK: RecentlyGameDelegate
+
+extension ViewController: RecentlyGameDelegate {
+  func updateGame(game _: webglhost_runtime.PlayedGameModel) {
+    guard let hostHandle else {
+      return
+    }
+    let playedGames = hostHandle.getAllRecentlyPlayedGames(userId: Config.USER_ID)
+    addGameViews(to: bottomView, games: playedGames)
   }
 }
 
@@ -349,12 +441,10 @@ extension ViewController: UITableViewDelegate {
 // MARK: HostViewControllerDelegate
 
 extension ViewController: HostViewControllerDelegate {
-  func startHostViewController(gameModel: GameModel) {
-    play(in: gameModel)
-  }
-
-  func startHostViewController(sessionUrl: String) {
-    playGameWithScan(result: sessionUrl)
+  func startHostViewController(launchKey: String) {
+    launchHostView(gameId: launchKey) { hostViewController in
+      hostViewController.launchKey = launchKey
+    }
   }
 }
 
@@ -387,4 +477,8 @@ extension ViewController: OnLogPrintListener {
 
     print(logMessage)
   }
+}
+
+extension Notification.Name {
+  static let didUpdateHostConfig = Notification.Name("SetHostConfig")
 }
