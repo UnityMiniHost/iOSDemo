@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 70;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5FD576142D5C7B1900476908 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD576132D5C7B1900476908 /* SnapKit */; };
+		C6114D602D5F59D300BB23C1 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C6114D5F2D5F59D300BB23C1 /* SDWebImage */; };
+		C6114D7D2D606CDD00BB23C1 /* QRCodeReader in Frameworks */ = {isa = PBXBuildFile; productRef = C6114D7C2D606CDD00BB23C1 /* QRCodeReader */; };
+		C623DC972D64899800C6321F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C623DC852D64899800C6321F /* Assets.xcassets */; };
+		C623DC9C2D64899800C6321F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C623DC842D64899800C6321F /* AppDelegate.swift */; };
+		C623DCAD2D648C7800C6321F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C623DCAC2D648C7800C6321F /* Config.swift */; };
+		C64848CA2D65D0F600FA1070 /* webglhost_runtime.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C64848C72D65D0EF00FA1070 /* webglhost_runtime.xcframework */; };
+		C64848CB2D65D0F600FA1070 /* webglhost_runtime.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C64848C72D65D0EF00FA1070 /* webglhost_runtime.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C6BE7A952D6EED5500EA7C4D /* webglhost.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BE7A932D6EED4B00EA7C4D /* webglhost.xcframework */; };
+		C6BE7A962D6EED5500EA7C4D /* webglhost.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C6BE7A932D6EED4B00EA7C4D /* webglhost.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5FD576072D5C768A00476908 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C64848CB2D65D0F600FA1070 /* webglhost_runtime.xcframework in Embed Frameworks */,
+				C6BE7A962D6EED5500EA7C4D /* webglhost.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5FD575D82D5C753300476908 /* webglhost-runtime-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "webglhost-runtime-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C623DC842D64899800C6321F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C623DC852D64899800C6321F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C623DCA52D64899B00C6321F /* webglhost-runtime-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "webglhost-runtime-app-Bridging-Header.h"; sourceTree = "<group>"; };
+		C623DCAC2D648C7800C6321F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C64848C72D65D0EF00FA1070 /* webglhost_runtime.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:C6RTLM3J3M:You San Di Technology (Shanghai) Co., Ltd"; lastKnownFileType = wrapper.xcframework; name = webglhost_runtime.xcframework; path = ../../SDK/webglhost_runtime.xcframework; sourceTree = "<group>"; };
+		C64848CE2D65D22200FA1070 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6BE7A932D6EED4B00EA7C4D /* webglhost.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:C6RTLM3J3M:You San Di Technology (Shanghai) Co., Ltd"; lastKnownFileType = wrapper.xcframework; name = webglhost.xcframework; path = ../../SDK/webglhost.xcframework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		5F03E02A2D7AEEFA00BB5C57 /* http */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = http; sourceTree = "<group>"; };
+		5F03E02C2D7AEEFA00BB5C57 /* model */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = model; sourceTree = "<group>"; };
+		5F03E0342D7AEEFA00BB5C57 /* ui */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ui; sourceTree = "<group>"; };
+		5F03E0362D7AEEFA00BB5C57 /* utils */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = utils; sourceTree = "<group>"; };
+		5F03E03A2D7AEEFA00BB5C57 /* view */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = view; sourceTree = "<group>"; };
+		5FDDD6212D6DE451008F98E5 /* customScripts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = customScripts; sourceTree = "<group>"; };
+		C623DC8A2D64899800C6321F /* Base.lproj */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Base.lproj; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5FD575D52D5C753300476908 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6BE7A952D6EED5500EA7C4D /* webglhost.xcframework in Frameworks */,
+				C64848CA2D65D0F600FA1070 /* webglhost_runtime.xcframework in Frameworks */,
+				C6114D602D5F59D300BB23C1 /* SDWebImage in Frameworks */,
+				5FD576142D5C7B1900476908 /* SnapKit in Frameworks */,
+				C6114D7D2D606CDD00BB23C1 /* QRCodeReader in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5FD575CF2D5C753300476908 = {
+			isa = PBXGroup;
+			children = (
+				C64848CE2D65D22200FA1070 /* Info.plist */,
+				C623DCA52D64899B00C6321F /* webglhost-runtime-app-Bridging-Header.h */,
+				5FDDD6212D6DE451008F98E5 /* customScripts */,
+				5F03E02A2D7AEEFA00BB5C57 /* http */,
+				5F03E02C2D7AEEFA00BB5C57 /* model */,
+				5F03E0342D7AEEFA00BB5C57 /* ui */,
+				5F03E0362D7AEEFA00BB5C57 /* utils */,
+				5F03E03A2D7AEEFA00BB5C57 /* view */,
+				C623DC842D64899800C6321F /* AppDelegate.swift */,
+				C623DCAC2D648C7800C6321F /* Config.swift */,
+				C623DC852D64899800C6321F /* Assets.xcassets */,
+				C623DC8A2D64899800C6321F /* Base.lproj */,
+				5FD576032D5C768A00476908 /* Frameworks */,
+				5FD575D92D5C753300476908 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5FD575D92D5C753300476908 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5FD575D82D5C753300476908 /* webglhost-runtime-app.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5FD576032D5C768A00476908 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C6BE7A932D6EED4B00EA7C4D /* webglhost.xcframework */,
+				C64848C72D65D0EF00FA1070 /* webglhost_runtime.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5FD575D72D5C753300476908 /* webglhost-runtime-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FD575EB2D5C753600476908 /* Build configuration list for PBXNativeTarget "webglhost-runtime-app" */;
+			buildPhases = (
+				5FD575D42D5C753300476908 /* Sources */,
+				5FD575D52D5C753300476908 /* Frameworks */,
+				5FD575D62D5C753300476908 /* Resources */,
+				5FD576072D5C768A00476908 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5F03E02A2D7AEEFA00BB5C57 /* http */,
+				5F03E02C2D7AEEFA00BB5C57 /* model */,
+				5F03E0342D7AEEFA00BB5C57 /* ui */,
+				5F03E0362D7AEEFA00BB5C57 /* utils */,
+				5F03E03A2D7AEEFA00BB5C57 /* view */,
+				5FDDD6212D6DE451008F98E5 /* customScripts */,
+				C623DC8A2D64899800C6321F /* Base.lproj */,
+			);
+			name = "webglhost-runtime-app";
+			packageProductDependencies = (
+				5FD576132D5C7B1900476908 /* SnapKit */,
+				C6114D5F2D5F59D300BB23C1 /* SDWebImage */,
+				C6114D7C2D606CDD00BB23C1 /* QRCodeReader */,
+			);
+			productName = "webglhost-runtime-app";
+			productReference = 5FD575D82D5C753300476908 /* webglhost-runtime-app.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5FD575D02D5C753300476908 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					5FD575D72D5C753300476908 = {
+						CreatedOnToolsVersion = 16.2;
+						LastSwiftMigration = 1610;
+					};
+				};
+			};
+			buildConfigurationList = 5FD575D32D5C753300476908 /* Build configuration list for PBXProject "webglhost-runtime-app" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5FD575CF2D5C753300476908;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5FD576122D5C7B1900476908 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				C6114D5E2D5F59D300BB23C1 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				C6114D7B2D606CDD00BB23C1 /* XCRemoteSwiftPackageReference "QRCodeReader" */,
+			);
+			productRefGroup = 5FD575D92D5C753300476908 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5FD575D72D5C753300476908 /* webglhost-runtime-app */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5FD575D62D5C753300476908 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C623DC972D64899800C6321F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5FD575D42D5C753300476908 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C623DC9C2D64899800C6321F /* AppDelegate.swift in Sources */,
+				C623DCAD2D648C7800C6321F /* Config.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5FD575EC2D5C753600476908 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "webglhost-runtime-app.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Runtime Demo";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.u3d.webglhost-runtime-demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "webglhost-runtime-app-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5FD575ED2D5C753600476908 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "webglhost-runtime-app.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Runtime Demo";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.u3d.webglhost-runtime-demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "webglhost-runtime-app-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5FD575EE2D5C753600476908 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5FD575EF2D5C753600476908 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5FD575D32D5C753300476908 /* Build configuration list for PBXProject "webglhost-runtime-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FD575EE2D5C753600476908 /* Debug */,
+				5FD575EF2D5C753600476908 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FD575EB2D5C753600476908 /* Build configuration list for PBXNativeTarget "webglhost-runtime-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FD575EC2D5C753600476908 /* Debug */,
+				5FD575ED2D5C753600476908 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5FD576122D5C7B1900476908 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		C6114D5E2D5F59D300BB23C1 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.20.0;
+			};
+		};
+		C6114D7B2D606CDD00BB23C1 /* XCRemoteSwiftPackageReference "QRCodeReader" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yannickl/QRCodeReader.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5FD576132D5C7B1900476908 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FD576122D5C7B1900476908 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		C6114D5F2D5F59D300BB23C1 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C6114D5E2D5F59D300BB23C1 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		C6114D7C2D606CDD00BB23C1 /* QRCodeReader */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C6114D7B2D606CDD00BB23C1 /* XCRemoteSwiftPackageReference "QRCodeReader" */;
+			productName = QRCodeReader;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 5FD575D02D5C753300476908 /* Project object */;
+}
